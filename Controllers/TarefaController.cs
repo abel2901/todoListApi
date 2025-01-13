@@ -36,10 +36,7 @@ namespace TodoList.Controllers
         public async Task<IActionResult> GetContagemDeTodasTarefas()
         {
             var tarefas = await _tarefaRepository.ObterContagemTarefasAsync();
-            if (tarefas == null)
-            {
-                return NotFound();
-            }
+            if (tarefas == null) return NotFound();
             return Ok(tarefas);
         }
 

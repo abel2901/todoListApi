@@ -37,3 +37,4 @@ C:\Users\abel2\source\repos\TodoList\TodoList\bin\Debug\net6.0\runtimes\win-x64\
 C:\Users\abel2\source\repos\TodoList\TodoList\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
 C:\Users\abel2\source\repos\TodoList\TodoList\bin\Debug\net6.0\runtimes\unix\lib\net6.0\System.Data.SqlClient.dll
 C:\Users\abel2\source\repos\TodoList\TodoList\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Data.SqlClient.dll
+C:\Users\abel2\source\repos\TodoList\TodoList\obj\Debug\net6.0\TodoList.sourcelink.json

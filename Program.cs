@@ -14,13 +14,22 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<DbSession>();
 builder.Services.AddTransient<ITarefaRepository, TarefaRepository>();
 
+
 var app = builder.Build();
+
+//var port = Environment.GetEnvironmentVariable("PORT") ?? "50900";
+//app.Urls.Add($"http://*:{port}");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+} else if (app.Environment.IsProduction())
+{
+    app.UseHttpsRedirection();
+    app.UseExceptionHandler();
+    app.UseHsts();
 }
 
 app.UseHttpsRedirection();
