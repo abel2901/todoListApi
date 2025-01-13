@@ -1,0 +1,44 @@
+[
+  {
+    "ContainingType": "TodoList.Controllers.TarefaController",
+    "Method": "CriaTarefa",
+    "RelativePath": "api/Tarefa/CriaTarefa",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "novaTarefa",
+        "Type": "TodoList.Models.Tarefa",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TodoList.Controllers.TarefaController",
+    "Method": "GetContagemDeTodasTarefas",
+    "RelativePath": "api/Tarefa/ObterContagemDasTarefas",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TodoList.Controllers.TarefaController",
+    "Method": "GetTarefaPeloId",
+    "RelativePath": "api/Tarefa/ObterTarefaPorId",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
