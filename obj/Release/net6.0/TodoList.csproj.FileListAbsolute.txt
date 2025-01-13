@@ -38,3 +38,8 @@ C:\Users\abel2\source\repos\TodoList\TodoList\obj\Release\net6.0\refint\TodoList
 C:\Users\abel2\source\repos\TodoList\TodoList\obj\Release\net6.0\TodoList.pdb
 C:\Users\abel2\source\repos\TodoList\TodoList\obj\Release\net6.0\TodoList.genruntimeconfig.cache
 C:\Users\abel2\source\repos\TodoList\TodoList\obj\Release\net6.0\ref\TodoList.dll
+C:\Users\abel2\source\repos\TodoList\TodoList\bin\Release\net6.0\{}\web.config
+C:\Users\abel2\source\repos\TodoList\TodoList\bin\Release\net6.0\{}\appsettings.Development.json
+C:\Users\abel2\source\repos\TodoList\TodoList\bin\Release\net6.0\{}\appsettings.json
+C:\Users\abel2\source\repos\TodoList\TodoList\bin\Release\net6.0\{}\TodoList.deps.json
+C:\Users\abel2\source\repos\TodoList\TodoList\bin\Release\net6.0\{}\TodoList.runtimeconfig.json
