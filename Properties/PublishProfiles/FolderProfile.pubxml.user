@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>C:\Users\abel2\source\repos\TodoList\TodoList\bin\Release\net6.0\publish\</_PublishTargetUrl>
-    <History>True|2025-01-13T01:52:13.9285403Z||;</History>
+    <History>True|2025-01-14T00:48:41.6897532Z||;True|2025-01-12T22:52:13.9285403-03:00||;</History>
     <LastFailureDetails />
   </PropertyGroup>
 </Project>
