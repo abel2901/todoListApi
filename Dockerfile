@@ -14,7 +14,7 @@ RUN dotnet publish -c Release -o out
 
 # Gerar a imagem final para a aplicação
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
-WORKDIR /{}
+WORKDIR /app
 COPY --from=build /app/out . 
 
 # Expor a porta em que a API vai rodar
