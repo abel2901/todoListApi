@@ -18,7 +18,7 @@ WORKDIR /app
 COPY --from=build /app/out . 
 
 # Expor a porta em que a API vai rodar
-EXPOSE 80
+EXPOSE 80 443
 
 # Comando para rodar a aplicação
 ENTRYPOINT ["dotnet", "TodoList.dll"]
