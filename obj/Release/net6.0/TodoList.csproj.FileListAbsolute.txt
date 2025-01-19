@@ -39,3 +39,10 @@ C:\Users\abel2\source\repos\TodoList\TodoList\obj\Release\net6.0\TodoList.pdb
 C:\Users\abel2\source\repos\TodoList\TodoList\obj\Release\net6.0\TodoList.genruntimeconfig.cache
 C:\Users\abel2\source\repos\TodoList\TodoList\obj\Release\net6.0\ref\TodoList.dll
 C:\Users\abel2\source\repos\TodoList\TodoList\bin\Release\net6.0\appsettings.Production.json
+C:\Users\abel2\source\repos\TodoList\TodoList\bin\Release\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\abel2\source\repos\TodoList\TodoList\bin\Release\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\abel2\source\repos\TodoList\TodoList\bin\Release\net6.0\Npgsql.dll
+C:\Users\abel2\source\repos\TodoList\TodoList\bin\Release\net6.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\abel2\source\repos\TodoList\TodoList\bin\Release\net6.0\System.Text.Encodings.Web.dll
+C:\Users\abel2\source\repos\TodoList\TodoList\bin\Release\net6.0\System.Text.Json.dll
+C:\Users\abel2\source\repos\TodoList\TodoList\bin\Release\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
