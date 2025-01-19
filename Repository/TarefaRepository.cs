@@ -19,8 +19,8 @@ namespace TodoList.Repository
         {
             using (var connection = _db.Connection)
             {
-                string command = @"INSERT INTO [TODOLIST].[dbo].[TAREFAS] (Titulo, DataCriacao, Descricao)
-                    VALUES (@Titulo, @DataCriacao, @Descricao)";
+                string command = @"insert into [todolist].[dbo].[tarefas] (titulo, datacriacao, descricao)
+                    values (@titulo, @datacriacao, @descricao)";
                 var result = await connection.ExecuteAsync(sql: command, param: tarefa);
                 return result;
             }
