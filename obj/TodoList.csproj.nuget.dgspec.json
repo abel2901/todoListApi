@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\abel2\\source\\repos\\TodoList\\TodoList\\TodoList.csproj": {}
+    "C:\\Users\\abel2\\source\\repos\\TodoList\\todoListApi\\TodoList.csproj": {}
   },
   "projects": {
-    "C:\\Users\\abel2\\source\\repos\\TodoList\\TodoList\\TodoList.csproj": {
+    "C:\\Users\\abel2\\source\\repos\\TodoList\\todoListApi\\TodoList.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\abel2\\source\\repos\\TodoList\\TodoList\\TodoList.csproj",
+        "projectUniqueName": "C:\\Users\\abel2\\source\\repos\\TodoList\\todoListApi\\TodoList.csproj",
         "projectName": "TodoList",
-        "projectPath": "C:\\Users\\abel2\\source\\repos\\TodoList\\TodoList\\TodoList.csproj",
+        "projectPath": "C:\\Users\\abel2\\source\\repos\\TodoList\\todoListApi\\TodoList.csproj",
         "packagesPath": "C:\\Users\\abel2\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\abel2\\source\\repos\\TodoList\\TodoList\\obj\\",
+        "outputPath": "C:\\Users\\abel2\\source\\repos\\TodoList\\todoListApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\abel2\\AppData\\Roaming\\NuGet\\NuGet.Config",
