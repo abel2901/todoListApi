@@ -11,7 +11,12 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<DbSession>();
+builder.Services.AddScoped<DbSession>(provider => 
+{
+    var configuratin = provider.GetRequiredService<IConfiguration>();
+    return new DbSession(configuratin);
+});
+
 builder.Services.AddTransient<ITarefaRepository, TarefaRepository>();
 
 var app = builder.Build();
