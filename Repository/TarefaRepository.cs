@@ -19,7 +19,7 @@ namespace TodoList.Repository
         {
             using (var connection = _db.Connection)
             {
-                string command = @"insert into [todolist].[dbo].[tarefas] (titulo, datacriacao, descricao)
+                string command = @"INSERT INTO public.""tarefas"" (titulo, datacriacao, descricao)
                     values (@titulo, @datacriacao, @descricao)";
                 var result = await connection.ExecuteAsync(sql: command, param: tarefa);
                 return result;
@@ -30,7 +30,7 @@ namespace TodoList.Repository
         {
             using (var connection = _db.Connection)
             {
-                string query = @"SELECT Titulo, DataCriacao, Descricao FROM [TODOLIST].[dbo].[TAREFAS] WHERE Id = @Id";
+                string query = @"SELECT titulo, datacriacao, descricao FROM public.""tarefas"" WHERE Id = @Id";
                 Tarefa tarefa = await connection.QueryFirstOrDefaultAsync<Tarefa>(sql: query, param: new { id });
                 return tarefa;
             }
@@ -40,8 +40,8 @@ namespace TodoList.Repository
         {
             using (var connection = _db.Connection)
             {
-                string query = @" SELECT COUNT(*) FROM [TODOLIST].[dbo].[TAREFAS]
-    	          SELECT * FROM [TODOLIST].[dbo].[TAREFAS]";
+                string query = @" SELECT COUNT(*) FROM public.""tarefas""
+    	          SELECT * FROM public.""tarefas""";
 
                 var reader = await connection.QueryMultipleAsync(sql: query);
 
