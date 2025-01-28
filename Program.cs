@@ -31,9 +31,10 @@ if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+    app.UseHttpsRedirection();
+
 }
 
-app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
