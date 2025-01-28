@@ -8,10 +8,12 @@ namespace TodoList.Controllers
     public class TarefaController : ControllerBase
     {
         private readonly ITarefaRepository _tarefaRepository;
+        private readonly IConfiguration _configuration;
 
-        public TarefaController(ITarefaRepository tarefaRepository)
+        public TarefaController(ITarefaRepository tarefaRepository, IConfiguration configuration)
         {
             _tarefaRepository = tarefaRepository;
+            _configuration = configuration;
         }
 
         [HttpPost]
@@ -38,6 +40,16 @@ namespace TodoList.Controllers
             var tarefas = await _tarefaRepository.ObterContagemTarefasAsync();
             if (tarefas == null) return NotFound();
             return Ok(tarefas);
+        }
+
+        [HttpGet("connection-string")]
+        public IActionResult GetConnectionString()
+        {
+            // Obter a ConnectionString do appsettings ou variáveis de ambiente
+            string connectionString = _configuration.GetConnectionString("TarefaConnection");
+
+            // Retornar a ConnectionString (apenas para teste, remova ou proteja em produção)
+            return Ok(new { ConnectionString = connectionString });
         }
 
     }

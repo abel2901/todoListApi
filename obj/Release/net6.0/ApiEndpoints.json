@@ -40,5 +40,15 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TodoList.Controllers.TarefaController",
+    "Method": "GetConnectionString",
+    "RelativePath": "api/Tarefa/connection-string",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
   }
 ]
