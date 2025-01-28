@@ -10,6 +10,8 @@ namespace TodoList.Data
 
         public DbSession(IConfiguration configuration)
         {
+            var connectionString = configuration.GetConnectionString("TarefaConnection");
+            Console.WriteLine($"ConnectionString: {connectionString}");
             Connection = new NpgsqlConnection(configuration.GetConnectionString("TarefaConnection"));
             Connection.Open();
         }

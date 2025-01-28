@@ -15,6 +15,10 @@ RUN dotnet publish -c Release -o out
 # Gerar a imagem final para a aplicação
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
 WORKDIR /app
+
+# Definir o ambiente de produção
+ENV ASPNETCORE_ENVIRONMENT=Production
+
 COPY --from=build /app/out . 
 
 # Expor a porta em que a API vai rodar
