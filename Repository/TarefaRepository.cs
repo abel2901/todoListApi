@@ -15,12 +15,13 @@ namespace TodoList.Repository
         }
 
         public async Task<int> Adiciona(Tarefa tarefa)
-
         {
             using (var connection = _db.Connection)
             {
-                string command = @"INSERT INTO public.""tarefas"" (titulo, datacriacao, descricao)
-                    values (@titulo, @datacriacao, @descricao)";
+                tarefa.DataCriacao = DateTime.Now;
+                tarefa.Concluido = false;
+                string command = @"INSERT INTO public.""tarefas"" (titulo, datacriacao, descricao, concluido)
+                    values (@titulo, @datacriacao, @descricao, @concluido)";
                 var result = await connection.ExecuteAsync(sql: command, param: tarefa);
                 return result;
             }
