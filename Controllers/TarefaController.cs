@@ -42,15 +42,15 @@ namespace TodoList.Controllers
             return Ok(tarefas);
         }
 
-        [HttpGet("connection-string")]
-        public IActionResult GetConnectionString()
-        {
-            // Obter a ConnectionString do appsettings ou variáveis de ambiente
-            string connectionString = _configuration.GetConnectionString("TarefaConnection");
+        //[HttpGet("connection-string")]
+        //public IActionResult GetConnectionString()
+        //{
+        //    // Obter a ConnectionString do appsettings ou variáveis de ambiente
+        //    string connectionString = _configuration.GetConnectionString("TarefaConnection");
 
-            // Retornar a ConnectionString (apenas para teste, remova ou proteja em produção)
-            return Ok(new { ConnectionString = connectionString });
-        }
+        //    // Retornar a ConnectionString (apenas para teste, remova ou proteja em produção)
+        //    return Ok(new { ConnectionString = connectionString });
+        //}
 
     }
 }
