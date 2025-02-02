@@ -38,19 +38,21 @@ namespace TodoList.Repository
 
         public async Task<TarefaContainer> ObterContagemTarefasAsync()
         {
-            using (var connection = _db.Connection)
-            {
-                string query = @" SELECT COUNT(*) FROM public.""tarefas""
-    	          SELECT * FROM public.""tarefas""";
+            using var connection = _db.Connection;
+            
+              string query = @"
+                   SELECT COUNT(*) FROM public.""tarefas""; 
+                   SELECT * FROM public.""tarefas"";
+              ";
 
-                var reader = await connection.QueryMultipleAsync(sql: query);
+            var reader = await connection.QueryMultipleAsync(sql: query);
 
-                return new TarefaContainer
-                {
-                    Item = (await reader.ReadAsync<int>()).FirstOrDefault(),
-                    Tarefas = (await reader.ReadAsync<Tarefa>()).ToList()
-                };
-            };
+              return new TarefaContainer
+              {
+                  Item = (await reader.ReadAsync<int>()).FirstOrDefault(),
+                  Tarefas = (await reader.ReadAsync<Tarefa>()).ToList()
+              };
+            
         }
     }
 
