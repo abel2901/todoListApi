@@ -18,6 +18,7 @@ WORKDIR /app
 
 # Definir o ambiente de produção
 ENV ASPNETCORE_ENVIRONMENT=Production
+ENV ConnectionStrings__TarefaConnection=$DATABASE_URL
 
 COPY --from=build /app/out . 
 
