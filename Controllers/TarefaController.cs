@@ -42,6 +42,15 @@ namespace TodoList.Controllers
             return Ok(tarefas);
         }
 
+        [HttpDelete]
+        [Route("DeletarTarefa")]
+        public async Task<IActionResult> DeletaTarefa(int id)
+        {
+            var tarefa = await _tarefaRepository.Delete(id);
+            if (tarefa == null) return NotFound();
+            return Ok(tarefa);
+        }
+
         //[HttpGet("connection-string")]
         //public IActionResult GetConnectionString()
         //{

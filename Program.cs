@@ -23,6 +23,13 @@ builder.Services.AddScoped<DbSession>(provider =>
 });
 
 builder.Services.AddTransient<ITarefaRepository, TarefaRepository>();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll",
+        policy => policy.AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader());
+});
 
 var app = builder.Build();
 
@@ -35,6 +42,7 @@ if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
 
 }
 
+app.UseCors("AllowAll");
 
 app.UseAuthorization();
 

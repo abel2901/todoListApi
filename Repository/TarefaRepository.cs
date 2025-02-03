@@ -55,6 +55,17 @@ namespace TodoList.Repository
               };
             
         }
+
+        public async Task<int> Delete(int id)
+        {
+            using (var connection = _db.Connection)
+            {
+                string query = @"DELETE FROM public.""tarefas"" WHERE Id = @Id";
+                var tarefa = await connection.ExecuteAsync(sql: query, param: new { id });
+                return tarefa;
+            }
+        }
+
     }
 
 }

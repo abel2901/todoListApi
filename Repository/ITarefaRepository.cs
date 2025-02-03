@@ -10,6 +10,6 @@ namespace TodoList.Repository
         Task<TarefaContainer> ObterContagemTarefasAsync();
 
         //int Edit(Tarefa tarefa);
-        //int Delete(int id);
+        Task<int> Delete(int id);
     }
 }
