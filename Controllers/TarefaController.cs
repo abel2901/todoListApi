@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using TodoList.Data.Dto.Tarefa;
 using TodoList.Models;
 using TodoList.Repository;
 
@@ -18,7 +19,7 @@ namespace TodoList.Controllers
 
         [HttpPost]
         [Route("CriaTarefa")]
-        public async Task<IActionResult> CriaTarefa([FromBody] Tarefa novaTarefa)
+        public async Task<IActionResult> CriaTarefa([FromBody]CreateTarefa novaTarefa)
         {
             var result = await _tarefaRepository.Adiciona(novaTarefa);
             return Ok(result);

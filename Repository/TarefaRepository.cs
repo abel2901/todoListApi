@@ -1,8 +1,7 @@
 ﻿using Dapper;
-using System.Data.SqlClient;
 using TodoList.Models;
 using TodoList.Data;
-using TodoList.Models;
+using TodoList.Data.Dto.Tarefa;
 
 namespace TodoList.Repository
 {
@@ -14,14 +13,12 @@ namespace TodoList.Repository
             _db = dbSession;
         }
 
-        public async Task<int> Adiciona(Tarefa tarefa)
+        public async Task<int> Adiciona(CreateTarefa tarefa)
         {
             using (var connection = _db.Connection)
             {
-                tarefa.DataCriacao = DateTime.Now;
-                tarefa.Concluido = false;
                 string command = @"INSERT INTO public.""tarefas"" (titulo, datacriacao, descricao, concluido)
-                    values (@titulo, @datacriacao, @descricao, @concluido)";
+                    values (@titulo, NOW(), @descricao, false)";
                 var result = await connection.ExecuteAsync(sql: command, param: tarefa);
                 return result;
             }
