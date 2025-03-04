@@ -21,8 +21,12 @@ namespace TodoList.Controllers
         [Route("CriaTarefa")]
         public async Task<IActionResult> CriaTarefa([FromBody]CreateTarefa novaTarefa)
         {
-            var result = await _tarefaRepository.Adiciona(novaTarefa);
-            return Ok(result);
+            if (novaTarefa != null)
+            {
+                var result = await _tarefaRepository.Adiciona(novaTarefa);
+                return Ok(result);
+            }
+            return BadRequest();
         }
 
         [HttpGet]

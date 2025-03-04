@@ -15,12 +15,17 @@ namespace TodoList.Repository
 
         public async Task<int> Adiciona(CreateTarefa tarefa)
         {
-            using (var connection = _db.Connection)
+            const string adicionaAtividade = @"INSERT INTO public.""tarefas"" (titulo, datacriacao, descricao, concluido)
+                    VALUES (@titulo, NOW(), @descricao, false)";
+            try
             {
-                string command = @"INSERT INTO public.""tarefas"" (titulo, datacriacao, descricao, concluido)
-                    values (@titulo, NOW(), @descricao, false)";
-                var result = await connection.ExecuteAsync(sql: command, param: tarefa);
-                return result;
+                using var connection = _db.Connection;
+                return await connection.ExecuteAsync(sql: adicionaAtividade, param: tarefa);
+            }
+            catch (Exception ex)
+            {
+                Console.Error.WriteLine(ex.ToString());
+                throw new Exception("Erro ao salvar a tarefa no banco de dados");
             }
         }
 
