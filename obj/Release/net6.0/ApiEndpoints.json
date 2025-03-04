@@ -9,7 +9,7 @@
     "Parameters": [
       {
         "Name": "novaTarefa",
-        "Type": "TodoList.Models.Tarefa",
+        "Type": "TodoList.Data.Dto.Tarefa.CreateTarefa",
         "IsRequired": true
       }
     ],
