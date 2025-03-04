@@ -56,6 +56,25 @@ namespace TodoList.Controllers
             return Ok(tarefa);
         }
 
+        [HttpPatch]
+        [Route("EditaTarefa")]
+        public async Task<IActionResult> EditarTarefa(int id, [FromBody] UpdateTarefa tarefa)
+        {
+            if (id <= 0) return BadRequest("ID inválido");
+            try
+            {
+                var resultado = await _tarefaRepository.Edit(id, tarefa);
+                if (resultado > 0)
+                    return Ok("Tarefa atualizada com sucesso.");
+
+                return NotFound("Tarefa não encontrada");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Erro interno: {ex.Message}");
+            }
+        }
+
         //[HttpGet("connection-string")]
         //public IActionResult GetConnectionString()
         //{

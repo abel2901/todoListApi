@@ -68,6 +68,54 @@ namespace TodoList.Repository
             }
         }
 
+        public async Task<int> Edit(int id, UpdateTarefa tarefa)
+        {
+            var camposParaAtualizar = new List<string>();
+            var parametros = new DynamicParameters();
+            parametros.Add("Id", id);
+
+            if(!string.IsNullOrWhiteSpace(tarefa.Titulo))
+            {
+                camposParaAtualizar.Add("titulo = @titulo");
+                parametros.Add("titulo", tarefa.Titulo);
+            }
+
+            if(!string.IsNullOrWhiteSpace(tarefa.Descricao))
+            {
+                camposParaAtualizar.Add("descricao = @descricao");
+                parametros.Add("descricao", tarefa.Descricao);
+            }
+
+            if(tarefa.Concluido.HasValue)
+            {
+                camposParaAtualizar.Add("concluido = @concluido");
+                parametros.Add("concluido", tarefa.DataConclusao);
+            }
+
+            if (tarefa.DataConclusao.HasValue)
+            {
+                camposParaAtualizar.Add("data_concluao = @data_conclusao");
+                parametros.Add("data_conclusao", tarefa.DataConclusao.Value);
+            }
+
+            if (!camposParaAtualizar.Any())
+                throw new ArgumentException("Nenhum campo para atualizar foi fornecido.");
+
+            string sql = $@"
+            UPDATE public.""tarefas""
+            SET {string.Join(", ", camposParaAtualizar)}
+            WHERE id = @Id";
+
+            try
+            {
+                return await _db.Connection.ExecuteAsync(sql, parametros);
+            }
+            catch (Exception ex)
+            {
+                Console.Error.WriteLine($"Erro ao atualizar tarefa: {ex.Message}");
+                throw new Exception("Erro ao atualizar a tarefa no banco de dados.");
+            }
+        }
     }
 
 }

@@ -10,7 +10,7 @@ namespace TodoList.Repository
         Task <Tarefa> ObterTarefaPeloId(int id);
         Task<TarefaContainer> ObterContagemTarefasAsync();
 
-        //int Edit(Tarefa tarefa);
+        Task<int> Edit(int id, UpdateTarefa tarefa);
         Task<int> Delete(int id);
     }
 }
