@@ -22,7 +22,7 @@ ENV DOTNET_USE_POLLING_FILE_WATCHER=true
 
 # Conexão com o banco (precisa configurar no painel do Railway)
 # Exemplo: se for PostgreSQL, configure DATABASE_URL lá e use no Program.cs
-ENV ConnectionStrings__TarefaConnection=${DATABASE_URL}
+# ENV ConnectionStrings__TarefaConnection=${DATABASE_URL}
 
 # Copiar saída do build
 COPY --from=build /app/out .

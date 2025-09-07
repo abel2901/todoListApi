@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UCqRt9mRPZU=",
+  "dgSpecHash": "km/Y0/+QnyY=",
   "success": true,
-  "projectFilePath": "C:\\Users\\abel2\\source\\repos\\TodoList\\todoListApi\\TodoList.csproj",
+  "projectFilePath": "C:\\Users\\abel2\\source\\repos\\TodoList\\TodoList.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\abel2\\.nuget\\packages\\dapper\\2.1.35\\dapper.2.1.35.nupkg.sha512",
     "C:\\Users\\abel2\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
