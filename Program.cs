@@ -1,17 +1,16 @@
-using Microsoft.Extensions.DependencyInjection;
 using TodoList.Data;
 using TodoList.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Adiciona configuração para porta dinâmica do Railway
-var port = Environment.GetEnvironmentVariable("PORT") ?? "80";
+// Porta dinâmica do Railway
+var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
 builder.WebHost.ConfigureKestrel(options =>
 {
     options.ListenAnyIP(int.Parse(port));
 });
 
-// Add services to the container.
+// Configuração
 builder.Configuration
     .SetBasePath(Directory.GetCurrentDirectory())
     .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
@@ -19,17 +18,20 @@ builder.Configuration
     .AddEnvironmentVariables();
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<DbSession>(provider => 
+// Banco de dados
+builder.Services.AddScoped<DbSession>(provider =>
 {
-    var configuratin = provider.GetRequiredService<IConfiguration>();
-    return new DbSession(configuratin);
+    var configuration = provider.GetRequiredService<IConfiguration>();
+    return new DbSession(configuration);
 });
 
+// Repositórios
 builder.Services.AddTransient<ITarefaRepository, TarefaRepository>();
+
+// CORS
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll",
@@ -40,19 +42,16 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Swagger habilitado em Dev e Produção
 if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
- //   app.UseHttpsRedirection();
-
 }
 
+
 app.UseCors("AllowAll");
-
 app.UseAuthorization();
-
 app.MapControllers();
 
 app.Run();
