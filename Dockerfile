@@ -1,29 +1,34 @@
-# Usar a imagem base do .NET SDK
+# Etapa de build
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
-
-# Setar o diretório de trabalho no container
 WORKDIR /app
 
-# Copiar o arquivo de projeto e restaurar as dependências
-COPY *.csproj .
+# Copiar csproj e restaurar dependências
+COPY *.csproj ./
 RUN dotnet restore
 
-# Copiar todo o código e construir a aplicação
-COPY . .
+# Copiar todo o código e compilar
+COPY . ./
 RUN dotnet publish -c Release -o out
 
-# Gerar a imagem final para a aplicação
-FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
+# Etapa final (runtime)
+FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS runtime
 WORKDIR /app
 
-# Definir o ambiente de produção
+# Definir variáveis de ambiente
 ENV ASPNETCORE_ENVIRONMENT=Production
-ENV ConnectionStrings__TarefaConnection=$DATABASE_URL
+# Railway usa a variável PORT para expor o serviço
+ENV DOTNET_RUNNING_IN_CONTAINER=true
+ENV DOTNET_USE_POLLING_FILE_WATCHER=true
 
-COPY --from=build /app/out . 
+# Conexão com o banco (precisa configurar no painel do Railway)
+# Exemplo: se for PostgreSQL, configure DATABASE_URL lá e use no Program.cs
+ENV ConnectionStrings__TarefaConnection=${DATABASE_URL}
 
-# Expor a porta em que a API vai rodar
-EXPOSE 80 443
+# Copiar saída do build
+COPY --from=build /app/out .
 
-# Comando para rodar a aplicação
+# Expõe a porta dinâmica que o Railway define
+EXPOSE 80
+
+# EntryPoint
 ENTRYPOINT ["dotnet", "TodoList.dll"]

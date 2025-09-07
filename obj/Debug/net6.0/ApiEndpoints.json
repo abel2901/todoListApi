@@ -9,7 +9,44 @@
     "Parameters": [
       {
         "Name": "novaTarefa",
-        "Type": "TodoList.Models.Tarefa",
+        "Type": "TodoList.Data.Dto.Tarefa.CreateTarefa",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TodoList.Controllers.TarefaController",
+    "Method": "DeletaTarefa",
+    "RelativePath": "api/Tarefa/DeletarTarefa",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TodoList.Controllers.TarefaController",
+    "Method": "EditarTarefa",
+    "RelativePath": "api/Tarefa/EditaTarefa",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "tarefa",
+        "Type": "TodoList.Data.Dto.Tarefa.UpdateTarefa",
         "IsRequired": true
       }
     ],

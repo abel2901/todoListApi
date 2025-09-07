@@ -4,6 +4,13 @@ using TodoList.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Adiciona configuração para porta dinâmica do Railway
+var port = Environment.GetEnvironmentVariable("PORT") ?? "80";
+builder.WebHost.ConfigureKestrel(options =>
+{
+    options.ListenAnyIP(int.Parse(port));
+});
+
 // Add services to the container.
 builder.Configuration
     .SetBasePath(Directory.GetCurrentDirectory())
